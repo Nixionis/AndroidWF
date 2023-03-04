@@ -1,5 +1,6 @@
 package com.example.worldfactory
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -37,7 +38,14 @@ class IntroActivity : AppCompatActivity() {
                 if(currentPageIndex == 2) binding.buttonNext.text = "Let's Start"
             } else {
                 //Let's get started!
+                val intent = Intent(this@IntroActivity, LoginActivity::class.java)
+                startActivity(intent)
             }
+        }
+
+        binding.buttonSkip.setOnClickListener {
+            val intent = Intent(this@IntroActivity, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 

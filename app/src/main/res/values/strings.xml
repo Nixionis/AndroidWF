@@ -8,6 +8,12 @@
     <string name="next">Next</string>
     <string name="skip">Skip</string>
     <string name="start">Let\'s Start</string>
+    <string name="login">Log in</string>
+    <string name="signup">Sign up</string>
+    <string name="password">Password</string>
+    <string name="email">E-mail</string>
+    <string name="name">Name</string>
+    <string name="create_account_desc">Create your account</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_intro">IntroActivity</string>
