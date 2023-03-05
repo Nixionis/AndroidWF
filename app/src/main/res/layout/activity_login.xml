@@ -86,6 +86,7 @@
         app:passwordToggleEnabled="false">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
@@ -169,6 +170,8 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/buttonsMain"
         android:fontFamily="@font/rubik_medium"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:text="@string/signup"
         android:textAllCaps="false"
         android:textColor="@color/white"

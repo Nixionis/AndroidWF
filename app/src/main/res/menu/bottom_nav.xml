@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dictionary"
+        android:icon="@drawable/courses"
+        android:title="Dictionary" />
+    <item android:title="Training"
+        android:id="@+id/training"
+        android:icon="@drawable/training"/>
+    <item android:title="Video"
+        android:id="@+id/video"
+        android:icon="@drawable/video"/>
+</menu>

@@ -39,6 +39,8 @@
         android:backgroundTint="@color/buttonsMain"
         android:capitalize="none"
         android:fontFamily="@font/rubik_medium"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/white"

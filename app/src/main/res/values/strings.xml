@@ -12,7 +12,11 @@
     <string name="signup">Sign up</string>
     <string name="password">Password</string>
     <string name="email">E-mail</string>
+    <string name="add_to_dic">Add to Dictionary</string>
     <string name="name">Name</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="training">Training</string>
+    <string name="video">Video</string>
     <string name="create_account_desc">Create your account</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -21,4 +25,5 @@
     <string name="intro1.2_text">Quarantine is the perfect time to spend your \nday learning something new, from anywhere!</string>
     <string name="intro2.1_text">Find a course \nfor you</string>
     <string name="intro3.1_text">Improve your skills</string>
+    <string name="test_color_text"><font color='#65AAEA'>Example: </font> he developed an interest in cooking.</string>
 </resources>
