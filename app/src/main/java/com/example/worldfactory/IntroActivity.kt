@@ -20,8 +20,18 @@ class IntroActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewPager = binding.viewpagerintro
-        viewPager.isUserInputEnabled = false
         viewPager.adapter = PagerAdapterIntro(this)
+
+        viewPager?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (position == 2) {
+                    binding.buttonNext.text = "Let's Start"
+                } else{
+                    binding.buttonNext.text = "Next"
+                }
+            }
+        })
 
         binding.buttonNext.setOnClickListener {
 
