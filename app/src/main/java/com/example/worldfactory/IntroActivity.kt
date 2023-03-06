@@ -2,13 +2,7 @@ package com.example.worldfactory
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.worldfactory.databinding.ActivityIntroBinding
 
@@ -25,7 +19,7 @@ class IntroActivity : AppCompatActivity() {
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewPager = binding.viewpagerIntro
+        viewPager = binding.viewpagerintro
         viewPager.isUserInputEnabled = false
         viewPager.adapter = PagerAdapterIntro(this)
 

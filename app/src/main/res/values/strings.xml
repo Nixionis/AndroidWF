@@ -26,4 +26,6 @@
     <string name="intro2.1_text">Find a course \nfor you</string>
     <string name="intro3.1_text">Improve your skills</string>
     <string name="test_color_text"><font color='#65AAEA'>Example: </font> he developed an interest in cooking.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

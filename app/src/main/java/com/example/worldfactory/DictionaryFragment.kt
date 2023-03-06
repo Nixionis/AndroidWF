@@ -5,14 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.worldfactory.databinding.FragmentFirstIntroBinding
+import com.example.worldfactory.databinding.FragmentDictionaryBinding
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * A simple [Fragment] subclass.
+ * Use the [DictionaryFragment.newInstance] factory method to
+ * create an instance of this fragment.
  */
-class FirstFragmentIntro : Fragment() {
+class DictionaryFragment : Fragment() {
 
-    private var _binding: FragmentFirstIntroBinding? = null
+    private var _binding: FragmentDictionaryBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,18 +24,17 @@ class FirstFragmentIntro : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        _binding = FragmentFirstIntroBinding.inflate(inflater, container, false)
+        // Inflate the layout for this fragment
+        _binding = FragmentDictionaryBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-    //    binding.buttonFirst.setOnClickListener {
-    //        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-    //    }
+        //    binding.buttonFirst.setOnClickListener {
+        //        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        //    }
     }
 
     override fun onDestroyView() {
