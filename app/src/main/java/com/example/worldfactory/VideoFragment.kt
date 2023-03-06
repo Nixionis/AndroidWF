@@ -39,8 +39,11 @@ class VideoFragment : Fragment() {
         super.onCreate(savedInstanceState)
         activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (binding.webview.canGoBack() && Uri.parse(binding.webview.url .toString()).toString().contains("https://learnenglish.britishcouncil.org/general-english/video-zone", ignoreCase = true) && Uri.parse(binding.webview.url .toString()).toString().length > 68){
-                    binding.webview.goBack()
+                if ((activity as WordActivity).currentTab == 2) {
+                    if (binding.webview.canGoBack() && Uri.parse(binding.webview.url .toString()).toString().contains("https://learnenglish.britishcouncil.org/general-english/video-zone", ignoreCase = true) && Uri.parse(binding.webview.url .toString()).toString().length > 68) {
+
+                        binding.webview.goBack()
+                    }
                 } else {
                     isEnabled = false
                     activity?.onBackPressed()
@@ -67,6 +70,8 @@ class VideoFragment : Fragment() {
         binding.webview.loadUrl("https://learnenglish.britishcouncil.org/general-english/video-zone")
         binding.webview.settings.javaScriptEnabled = true
         binding.webview.settings.setSupportZoom(true)
+
+
     }
 
     override fun onDestroyView() {
