@@ -1,9 +1,11 @@
-package com.example.worldfactory
+package com.example.worldfactory.intro
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.worldfactory.login.LoginActivity
 import com.example.worldfactory.databinding.ActivityIntroBinding
 
 class IntroActivity : AppCompatActivity() {
@@ -48,6 +50,7 @@ class IntroActivity : AppCompatActivity() {
         }
 
         binding.buttonSkip.setOnClickListener {
+            Log.d("DictionaryTest", "Skip")
             val intent = Intent(this@IntroActivity, LoginActivity::class.java)
             startActivity(intent)
         }

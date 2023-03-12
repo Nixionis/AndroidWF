@@ -1,9 +1,10 @@
-package com.example.worldfactory
+package com.example.worldfactory.splash
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.example.worldfactory.intro.IntroActivity
 import com.example.worldfactory.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

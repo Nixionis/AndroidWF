@@ -11,10 +11,10 @@
         android:layout_marginTop="0dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/search_view_bg"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="16dp"
         app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
         app:strokeColor="#BEBAB3"
         app:strokeWidth="1dp">
 
