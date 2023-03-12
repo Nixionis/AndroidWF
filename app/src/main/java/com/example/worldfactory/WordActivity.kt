@@ -1,11 +1,14 @@
 package com.example.worldfactory
 
 import android.content.Context
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.example.worldfactory.api.WordModel
 import com.example.worldfactory.databinding.ActivityWordBinding
 import com.example.worldfactory.localDB.*
@@ -15,6 +18,7 @@ class WordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWordBinding
     private lateinit var viewPager: ViewPager2
     lateinit var dao: WordDao
+    lateinit var mediaPlayer: MediaPlayer
     var currentTab : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +55,8 @@ class WordActivity : AppCompatActivity() {
             }
             false
         }
+
+        mediaPlayer = MediaPlayer()
     }
 
     fun checkForInternet(): Boolean{
@@ -117,5 +123,21 @@ class WordActivity : AppCompatActivity() {
                         }
                     }
                 }
+    }
+
+    fun playAudio(url: String){
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+
+        try {
+            mediaPlayer.reset()
+            mediaPlayer.setDataSource(url)
+            mediaPlayer.prepare()
+            mediaPlayer.start()
+        } catch(e: Exception) {
+            val dialogBuilder = AlertDialog.Builder(this)
+            dialogBuilder.setTitle("Can't play audio!")
+            dialogBuilder.setMessage("It seems that your connection is disabled.")
+            dialogBuilder.show()
+        }
     }
 }

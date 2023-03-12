@@ -40,7 +40,7 @@ class DictionaryFragment : Fragment() {
     private lateinit var recView: RecyclerView
     private lateinit var data: List<WordModel>
     private val dataAdapter: DataAdapter by lazy {
-        DataAdapter()
+        DataAdapter(requireContext())
     }
 
     // This property is only valid between onCreateView and
@@ -138,8 +138,13 @@ class DictionaryFragment : Fragment() {
             binding.loadCircle.startAnimation(animationIn)
 
             val animation = AnimationUtils.loadAnimation(context, R.anim.fade_out)
+
+            if(binding.buttonAddWord.visibility != View.GONE) {
+                binding.buttonAddWord.startAnimation(animation)
+            }
+
             binding.CardView.startAnimation(animation)
-            binding.buttonAddWord.startAnimation(animation)
+
             Handler().postDelayed({
                 binding.CardView.visibility = View.GONE
                 binding.buttonAddWord.visibility = View.GONE
@@ -231,20 +236,23 @@ class DictionaryFragment : Fragment() {
 
     private fun getWordDB(wordWithPhonetics : List<WordWithPhonetics>){
 
-        activity?.runOnUiThread(java.lang.Runnable {
-       //     binding.loadCircle.visibility = View.VISIBLE
-        //    val animationIn = AnimationUtils.loadAnimation(context, R.anim.fade_in)
-        //    binding.loadCircle.startAnimation(animationIn)
+        if(binding.buttonAddWord.visibility != View.GONE) {
 
-            val animation = AnimationUtils.loadAnimation(context, R.anim.fade_out)
-        //    binding.CardView.startAnimation(animation)
-            binding.buttonAddWord.startAnimation(animation)
-            Handler().postDelayed({
-          //      binding.CardView.visibility = View.GONE
-                binding.buttonAddWord.visibility = View.GONE
-            }, 500)
+            activity?.runOnUiThread(java.lang.Runnable {
+                //     binding.loadCircle.visibility = View.VISIBLE
+                //    val animationIn = AnimationUtils.loadAnimation(context, R.anim.fade_in)
+                //    binding.loadCircle.startAnimation(animationIn)
 
-        })
+                val animation = AnimationUtils.loadAnimation(context, R.anim.fade_out)
+                //    binding.CardView.startAnimation(animation)
+                binding.buttonAddWord.startAnimation(animation)
+                Handler().postDelayed({
+                    //      binding.CardView.visibility = View.GONE
+                    binding.buttonAddWord.visibility = View.GONE
+                }, 500)
+
+            })
+        }
 
         //word = (activity as WordActivity).dao.getWordWithPhonetics(binding.texteditSearch.text.toString())
 

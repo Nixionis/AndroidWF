@@ -1,5 +1,6 @@
 package com.example.worldfactory
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,21 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class DataAdapter : RecyclerView.Adapter<DataAdapter.DataAdapterViewHolder>() {
+class DataAdapter constructor(contextc: Context) : RecyclerView.Adapter<DataAdapter.DataAdapterViewHolder>() {
 
     private val adapterData = ArrayList<WordListModel>()
+    private val context: Context
 
-    class DataAdapterViewHolder(view: View) : RecyclerView.ViewHolder(view){
+    init {
+        context = contextc
+    }
 
+    class DataAdapterViewHolder(view: View, contextttt: Context) : RecyclerView.ViewHolder(view){
+
+        private val context: Context
+        init {
+            context = contextttt
+        }
         private fun bindHeader(item : WordListModel.Header){
             itemView.findViewById<TextView>(R.id.text_header).text = item.word
             itemView.findViewById<TextView>(R.id.text_whatis).text = item.phonetic
@@ -22,6 +32,9 @@ class DataAdapter : RecyclerView.Adapter<DataAdapter.DataAdapterViewHolder>() {
                 itemView.findViewById<ImageButton>(R.id.Audio_play).visibility = View.GONE
             } else {
                 itemView.findViewById<ImageButton>(R.id.Audio_play).visibility = View.VISIBLE
+                itemView.findViewById<ImageButton>(R.id.Audio_play).setOnClickListener {
+                    (context as WordActivity).playAudio(item.audio)
+                }
             }
         }
 
@@ -67,7 +80,7 @@ class DataAdapter : RecyclerView.Adapter<DataAdapter.DataAdapterViewHolder>() {
 
         val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
 
-        return DataAdapterViewHolder(view)
+        return DataAdapterViewHolder(view, context)
     }
 
     override fun getItemCount(): Int = adapterData.size
