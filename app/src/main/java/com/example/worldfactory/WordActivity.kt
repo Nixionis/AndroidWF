@@ -128,12 +128,12 @@ class WordActivity : AppCompatActivity() {
     fun playAudio(url: String){
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
 
-        try {
+        if (checkForInternet()) {
             mediaPlayer.reset()
             mediaPlayer.setDataSource(url)
             mediaPlayer.prepare()
             mediaPlayer.start()
-        } catch(e: Exception) {
+        } else {
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setTitle("Can't play audio!")
             dialogBuilder.setMessage("It seems that your connection is disabled.")

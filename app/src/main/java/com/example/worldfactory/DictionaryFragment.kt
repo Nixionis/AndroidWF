@@ -311,9 +311,9 @@ class DictionaryFragment : Fragment() {
 
             activity?.runOnUiThread(java.lang.Runnable {
                 dataAdapter.setData(cardList)
-             //   binding.CardView.visibility = View.VISIBLE
-             //   val animation = AnimationUtils.loadAnimation(context, R.anim.fade_in)
-             //   binding.CardView.startAnimation(animation)
+                binding.CardView.visibility = View.VISIBLE
+                val animation = AnimationUtils.loadAnimation(context, R.anim.fade_in)
+                binding.CardView.startAnimation(animation)
 
              //   val animationHide = AnimationUtils.loadAnimation(context, R.anim.fade_out)
              //   binding.loadCircle.startAnimation(animationHide)
