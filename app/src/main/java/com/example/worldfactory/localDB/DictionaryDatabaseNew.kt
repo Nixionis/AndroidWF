@@ -30,7 +30,7 @@ abstract class DictionaryDatabaseNew: RoomDatabase(){
                 return  INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
                     DictionaryDatabaseNew::class.java,
-                    "dictionarynew_db"
+                    "dictionarytrain_db"
                 ).build().also {
                     INSTANCE = it
                 }

@@ -6,21 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".TrainingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/text_placeholder3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginEnd="181dp"
+        android:id="@+id/text_timer"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="128dp"
         android:fontFamily="@font/rubik_bold"
-        android:text="Work in progress!"
+        android:gravity="center"
+        android:text="5"
         android:textAlignment="center"
-        android:textColor="@color/buttonsMain"
-        android:textSize="36sp"
+        android:textColor="#E3562A"
+        android:textSize="56sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressbartimer"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="128dp"
+        android:visibility="gone"
+        app:indicatorColor="@color/buttonsMain"
+        app:indicatorDirectionCircular="clockwise"
+        app:indicatorInset="0dp"
+        app:indicatorSize="128dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:trackColor="@color/white"
+        app:trackCornerRadius="5dp"
+        app:trackThickness="10dp" />
 
+    <TextView
+        android:id="@+id/text_curwords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="There are 25 words in your Dictionary."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+        android:text="Start the Training?"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_curwords" />
+
+    <Button
+        android:id="@+id/button_strat_training"
+        android:layout_width="309dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="32dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Start"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

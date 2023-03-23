@@ -2,7 +2,6 @@ package com.example.worldfactory.localDB
 
 import androidx.room.*
 
-
 @Dao
 interface WordDao {
 
@@ -29,5 +28,25 @@ interface WordDao {
     @Transaction
     @Query("SELECT * FROM meanings WHERE id = :meanId")
     suspend fun getMeaningWithDefinitions(meanId: Int): List<MeaningWithDefinitions>
+
+    @Transaction
+    @Query("SELECT COUNT(word) FROM word")
+    suspend fun getWordCount(): Int
+
+    @Transaction
+    @Query("SELECT * FROM word ORDER BY learncoef ASC LIMIT 10")
+    suspend fun getLowestCoefWords(): List<WordWithMeanings>
+
+    @Transaction
+    @Query("UPDATE word SET learncoef = learncoef + 1 WHERE word = :wordName")
+    suspend fun addPointToWord(wordName: String)
+
+    @Transaction
+    @Query("UPDATE word SET learncoef = learncoef - 1 WHERE word = :wordName")
+    suspend fun subtructPointToWord(wordName: String)
+
+    @Transaction
+    @Query("SELECT * FROM word ORDER BY RANDOM() LIMIT 50")
+    suspend fun getRandomWords(): List<WordDBModel>
 
 }

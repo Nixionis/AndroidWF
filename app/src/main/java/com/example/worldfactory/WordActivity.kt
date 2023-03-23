@@ -90,7 +90,7 @@ class WordActivity : AppCompatActivity() {
                         }
                     }
 
-                    dao.insertWord(WordDBModel(word, phonetic))
+                    dao.insertWord(WordDBModel(word, phonetic, 0))
 
                     var audio: String = ""
                     if(audio == "") {

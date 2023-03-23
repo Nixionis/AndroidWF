@@ -8,4 +8,5 @@ data class WordDBModel (
     @PrimaryKey(autoGenerate = false)
     var word: String,
     var phonetic: String,
+    var learncoef: Int = 0
 )

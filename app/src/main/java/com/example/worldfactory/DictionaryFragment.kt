@@ -76,17 +76,14 @@ class DictionaryFragment : Fragment() {
         }
 
 
-        binding.texteditSearch.setOnKeyListener(View.OnKeyListener{ v, keyCode, event ->
+        binding.texteditSearch.setOnKeyListener(View.OnKeyListener{ _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                 if (!binding.texteditSearch.text.toString().isNullOrEmpty()) {
 
-                    var word : List<WordWithPhonetics> = emptyList<WordWithPhonetics>()
+                    var word : List<WordWithPhonetics>
 
                     viewLifecycleOwner.lifecycleScope.launch {
 
-                        word = (activity as WordActivity).dao.getWordWithPhonetics(binding.texteditSearch.text.toString())
-
-                        if (word.isEmpty()) {
                         //Need to get word from api
                             if ((activity as WordActivity).checkForInternet()) {
 
@@ -94,18 +91,19 @@ class DictionaryFragment : Fragment() {
 
                             } else {
 
-                                val dialogBuilder = AlertDialog.Builder(activity as WordActivity)
-                                dialogBuilder.setTitle("Can't find your word!")
-                                dialogBuilder.setMessage("We couldn't find your word from your dictionary and your connection is disabled.")
-                                dialogBuilder.show()
+                                word = (activity as WordActivity).dao.getWordWithPhonetics(binding.texteditSearch.text.toString())
+
+                                if (word.isEmpty()) {
+                                    val dialogBuilder = AlertDialog.Builder(activity as WordActivity)
+                                    dialogBuilder.setTitle("Can't find your word!")
+                                    dialogBuilder.setMessage("We couldn't find your word from your dictionary and your connection is disabled.")
+                                    dialogBuilder.show()
+                                } else {
+                                    //Finded in database -> show from db
+                                    getWordDB(word)
+                                }
 
                             }
-
-                        } else {
-
-                            //Finded in database -> show from db
-                            getWordDB(word)
-                        }
                     }
 
                 }

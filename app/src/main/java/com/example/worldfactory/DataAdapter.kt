@@ -96,7 +96,6 @@ class DataAdapter constructor(contextc: Context) : RecyclerView.Adapter<DataAdap
             is WordListModel.PartOfSpeech -> 1
             is WordListModel.MeaningHeader -> 2
             is WordListModel.DefinitionExample -> 3
-            else -> 4
         }
     }
 
